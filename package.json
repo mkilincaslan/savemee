@@ -1,0 +1,117 @@
+{
+  "name": "savemee",
+  "displayName": "SaveMee: Snippet & Component Manager",
+  "description": "Save and reuse code snippets and components",
+  "version": "1.0.0",
+  "author": "Mesut KILINCASLAN",
+  "license": "MIT",
+  "publisher": "mkilincaslan",
+  "main": "./dist/extension.js",
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "lint": "eslint src --ext ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mkilincaslan/savemee.git"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Snippets",
+    "Other"
+  ],
+  "keywords": [
+    "snippet",
+    "component",
+    "save",
+    "reuse",
+    "template"
+  ],
+  "activationEvents": [
+    "onCommand:savemee.saveSnippet",
+    "onCommand:savemee.insertSnippet",
+    "onCommand:savemee.listSnippets",
+    "onCommand:savemee.deleteSnippet",
+    "onCommand:savemee.searchSnippets"
+  ],
+  "configuration": {
+    "title": "SaveMee",
+    "properties": {
+      "savemee.enableIntelliSense": {
+        "type": "boolean",
+        "default": true,
+        "description": "Enable snippet suggestions in IntelliSense"
+      }
+    }
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "savemee.saveSnippet",
+        "title": "SaveMee: Save Current Selection as Snippet",
+        "category": "SaveMee"
+      },
+      {
+        "command": "savemee.insertSnippet",
+        "title": "SaveMee: Insert Saved Snippet",
+        "category": "SaveMee"
+      },
+      {
+        "command": "savemee.listSnippets",
+        "title": "SaveMee: List All Snippets",
+        "category": "SaveMee"
+      },
+      {
+        "command": "savemee.deleteSnippet",
+        "title": "SaveMee: Delete a Snippet",
+        "category": "SaveMee"
+      },
+      {
+        "command": "savemee.searchSnippets",
+        "title": "SaveMee: Search Snippets",
+        "category": "SaveMee"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "savemee.saveSnippet",
+          "when": "editorHasSelection",
+          "group": "savemee"
+        },
+        {
+          "command": "savemee.insertSnippet",
+          "group": "savemee"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "savemee.saveSnippet",
+          "when": "editorHasSelection"
+        }
+      ]
+    }
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^16.18.34",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "eslint": "^8.47.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.2.2",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
