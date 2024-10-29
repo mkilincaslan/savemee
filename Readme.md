@@ -5,6 +5,8 @@ SaveMee is a powerful VS Code extension that helps you save, manage, and reuse c
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 ![VS Code](https://img.shields.io/badge/VS%20Code-1.85+-blue.svg)
 
+![Version](/images/savemee.png)
+
 ## Features
 
 ### 🚀 Quick Access
